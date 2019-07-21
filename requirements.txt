@@ -1,0 +1,9 @@
+tensorflow==1.11.0
+networkx==1.11
+numpy==1.14.4
+scipy==1.1.0
+dill==0.2.7.1
+scikit-learn==0.19.1
+pandas==0.23.1
+matplotlib==2.2.2
+ipykernel==4.8.2
