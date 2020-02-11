@@ -1,29 +1,29 @@
-# Dynamic Graph Representation Learning via Self-Attention Networks.
+## DySAT: Deep Neural Representation Learning on Dynamic Graphs via Self-Attention Networks.
 
-### Contributors: [Aravind Sankar](http://asankar3.web.engr.illinois.edu/) (asankar3@illinois.edu), Yanhong Wu, Liang Gou, Wei Zhang and Hao Yang.
+##### Contributors: [Aravind Sankar](http://asankar3.web.engr.illinois.edu/) (asankar3@illinois.edu).
+
+> Aravind Sankar, Yanhong Wu, Liang Gou, Wei Zhang, and Hao Yang, "DySAT: Deep Neural Representation Learning on Dynamic Graphs via Self-Attention Networks", International Conference on Web Search and Data Mining, <b>WSDM 2020</b>, Houston, TX, February 3-7, 2020.
 
 
-This directory contains a TensorFlow implementation of DySAT - Dynamic Self Attention (DySAT) networks for 
+This repository contains a TensorFlow implementation of DySAT - Dynamic Self Attention (DySAT) networks for 
 dynamic graph representation Learning. DySAT is an unsupervised graph embedding 
-model to learn node embeddings in dynamic time-evolving attributed graphs, which may later be used for downstream 
-application tasks such as link prediction, clustering and node classification.
+model to learn node embeddings in dynamic time-evolving attributed graphs, which may later be used for downstream application tasks such as link prediction, clustering and node classification.
 
-Note: Though DySAT is designed for attributed dynamic graphs, our benchmarking experiments are carried 
-out on datasets that do not have node attributes.
+Note: Though DySAT is designed for attributed dynamic graphs, our benchmarking experiments are carried out on datasets that do not have node attributes.
  
 
 ![DySAT: Dynamic Self-Attention Network](arch.png)
 
 
+### Incremental Dynamic Graph Embedding
+
 To support streaming graph applications, we also provide an implementation of Incremental 
 Self-Attention (IncSAT) Networks to learn dynamic incremental node embeddings in a stage-wise fashion. 
-See our [paper](https://arxiv.org/pdf/1812.09430.pdf) for details on the algorithm.
+See our extended [arxiv version](https://arxiv.org/pdf/1812.09430.pdf) for details on the algorithm.
 
 
-A preliminary version of this work has been published in the workshop: <i>Representation Learning on 
-Graphs and Manifolds, ICLR 2019</i>.
 
-If you make use of this code or the DySAT algorithm in your work, please cite the following paper:
+If you make use of this code or the DySAT algorithm in your work, please cite our papers:
 
 ```angular2
 @article{sankar2018dynamic,
@@ -34,8 +34,15 @@ If you make use of this code or the DySAT algorithm in your work, please cite th
 }
 
 ```
-
-
+```angular2
+@inproceedings{sankar2020dysat,
+  title={DySAT: Deep Neural Representation Learning on Dynamic Graphs via Self-Attention Networks},
+  author={Sankar, Aravind and Wu, Yanhong and Gou, Liang and Zhang, Wei and Yang, Hao},
+  booktitle={Proceedings of the 13th International Conference on Web Search and Data Mining},
+  pages={519--527},
+  year={2020}
+}
+```
 ### Requirements:
 
 Recent versions of TensorFlow (<= 1.14), numpy, scipy, sklearn, and networkx (<= 1.11) are required.
@@ -47,7 +54,7 @@ command:
 To guarantee that you have the right package versions, you can use Anaconda to set up a virtual environment and install the dependencies from ``requirements.txt``.
 
 
-### Input format
+### Input Format
 
 In order to use your own data, you have to provide:
 
@@ -55,7 +62,7 @@ In order to use your own data, you have to provide:
 
 - ``features``: list of ``N x D`` feature matrices (``N`` is the number of nodes and ``D`` is the number of features per node) in scipy sparse format) -- optional.
 
-### Repository organization
+### Repository Organization
 - ``data/`` contains the necessary input file(s) for each dataset after pre-processing.
 - ``raw_data/`` contains data pre-processing jupyter notebooks for reference.
 - ``models/`` contains the implementation of two models - ``DySAT`` and ``IncSAT``.
@@ -76,7 +83,7 @@ For example, if ``min_time`` is 2 and ``max_time`` is 3, two instances of the mo
 
 The other hyper-parameters of the model are specified in ``run_script.py`` (along with detailed descriptions) and may need to be appropriately tuned for different datasets.
 
-### Logging directory
+### Logging Directory
 
 For logging, the ``model`` flag should be provided to specify the variant/version of the experimented model 
 (initially set to ``default``), in addition to choosing ``base_model`` as DySAT or IncSAT.
